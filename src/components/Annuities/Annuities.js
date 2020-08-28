@@ -1,9 +1,25 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useState } from 'react'
 
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
 const Annuities = () => {
+  const [amount, setAmount] = useState()
+  const [duration, setDuration] = useState()
+  const [rate, setRate] = useState()
+  const handleChange = event => {
+    switch (event.target.name) {
+      case "amount":
+        setAmount(event.target.value)
+        break
+      case "duration":
+        setDuration(event.target.value)
+        break
+      case "rate":
+        setRate(event.target.value)
+        break
+    }
+  }
   return (
     <Fragment>
       <h2>Present Value Calculator</h2>
@@ -14,6 +30,7 @@ const Annuities = () => {
             required
             type="number"
             name="amount"
+            onChange={handleChange}
           />
         </Form.Group>
         <Form.Group controlId="duration">
@@ -22,6 +39,7 @@ const Annuities = () => {
             required
             type="number"
             name="duration"
+            onChange={handleChange}
           />
         </Form.Group>
         <Form.Group controlId="rate">
@@ -30,6 +48,7 @@ const Annuities = () => {
             required
             type="number"
             name="rate"
+            onChange={handleChange}
           />
         </Form.Group>
         <Button
