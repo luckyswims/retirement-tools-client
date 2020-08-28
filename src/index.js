@@ -1,10 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import './index.scss'
 
 import App from './components/App/App'
+import { BrowserRouter } from 'react-router-dom'
 
 const appJsx = (
-  <App />
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
 )
 
 ReactDOM.render(appJsx, document.getElementById('root'))

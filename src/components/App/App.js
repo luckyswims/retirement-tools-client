@@ -1,7 +1,15 @@
-import React from 'react'
+import React, { Fragment } from 'react'
+
+import Home from '../Home/Home'
+import Header from '../Header/Header'
 
 const App = () => {
-  return <h1>Hello World</h1>
+  return (
+    <Fragment>
+      <Header />
+      <Home />
+    </Fragment>
+  )
 }
 
 export default App
