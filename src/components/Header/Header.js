@@ -7,7 +7,7 @@ const Header = () => (
     <Navbar.Brand href="/">
       Retirement Tools
     </Navbar.Brand>
-    <Nav.Link href="">Annuities</Nav.Link>
+    <Nav.Link href="/annuity">Annuities</Nav.Link>
   </Navbar>
 )
 
