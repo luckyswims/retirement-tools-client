@@ -3,6 +3,8 @@ import React, { Fragment, useState } from 'react'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
+import { pv } from '../../api/annuities'
+
 const Annuities = () => {
   const [amount, setAmount] = useState()
   const [duration, setDuration] = useState()
@@ -10,20 +12,32 @@ const Annuities = () => {
   const handleChange = event => {
     switch (event.target.name) {
       case "amount":
-        setAmount(event.target.value)
+        setAmount(Number(event.target.value))
         break
       case "duration":
-        setDuration(event.target.value)
+        setDuration(Number(event.target.value))
         break
       case "rate":
-        setRate(event.target.value)
+        setRate(Number(event.target.value))
         break
     }
+  }
+  const onSubmit = event => {
+    event.preventDefault()
+    const data = {
+      annuity: {
+        amount,
+        duration,
+        rates: rate
+      }
+    }
+    console.log(data)
+    pv(data)
   }
   return (
     <Fragment>
       <h2>Present Value Calculator</h2>
-      <Form>
+      <Form onSubmit={onSubmit}>
         <Form.Group controlId="amount">
           <Form.Label>Amount per Payment</Form.Label>
           <Form.Control 
@@ -47,6 +61,7 @@ const Annuities = () => {
           <Form.Control 
             required
             type="number"
+            step="0.01"
             name="rate"
             onChange={handleChange}
           />
