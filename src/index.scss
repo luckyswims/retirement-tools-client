@@ -1,1 +1,35 @@
-@import '~bootstrap/scss/bootstrap'
+@import '~bootstrap/scss/bootstrap';
+
+$accent-color: #63d2ff;
+$button-color: #2081c3;
+$text-color: #000;
+
+nav {
+  background-color: $accent-color;
+
+  a {
+    color: $text-color;
+  }
+}
+
+main {
+  margin: 0 1rem;
+}
+
+h2 {
+  margin: 1rem 0;
+}
+
+.form-label {
+  width: 10rem;
+}
+
+.form-control {
+  display: inline;
+  width: 8rem;
+}
+
+.btn-primary {
+  background-color: $button-color;
+  border-color: $button-color;
+}

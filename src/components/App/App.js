@@ -9,14 +9,16 @@ const App = () => {
   return (
     <Fragment>
       <Header />
-      <Switch>
-        <Route path="/annuity">
-          <Annuities />
-        </Route>
-        <Route path="/">
-          <Home />
-        </Route>
-      </Switch>
+      <main>
+        <Switch>
+          <Route path="/annuity">
+            <Annuities />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </main>
     </Fragment>
   )
 }
