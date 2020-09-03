@@ -9,6 +9,7 @@ const Annuities = () => {
   const [amount, setAmount] = useState()
   const [duration, setDuration] = useState()
   const [rate, setRate] = useState()
+  const [result, setResult] = useState()
   const handleChange = event => {
     switch (event.target.name) {
       case "amount":
@@ -31,8 +32,13 @@ const Annuities = () => {
         rates: rate
       }
     }
-    console.log(data)
     pv(data)
+      .then(res => setResult(res.data))
+  }
+  let resultMessage
+  if (result !== undefined) {
+    const { amount, duration, rates } = result.annuity
+    resultMessage = <p>The present value of an annuity of {amount} per payment for {duration} payments, assuming {rates}% interest, is {result.value}.</p>
   }
   return (
     <Fragment>
@@ -73,6 +79,7 @@ const Annuities = () => {
           Submit
         </Button>
       </Form>
+      {resultMessage}
     </Fragment>
   )
 }
