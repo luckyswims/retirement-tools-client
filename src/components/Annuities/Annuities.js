@@ -44,11 +44,11 @@ const Annuities = () => {
       rates = [rate, rate2, rate3]
     }
     const data = {
-      annuity: {
+      annuities: [{
         amount,
         duration,
         rates: rate
-      }
+      }]
     }
     pv(data)
       .then(res => setResult(res.data))
