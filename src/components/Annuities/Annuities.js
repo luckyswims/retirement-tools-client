@@ -105,8 +105,8 @@ const Annuities = () => {
   }
   let resultMessage
   if (result !== undefined) {
-    const { amount, duration, rates } = result.annuity
-    resultMessage = <p>The present value of an annuity of {amount} per payment for {duration} payments, assuming {rates}% interest, is {result.value}.</p>
+    const { amount, duration, rates } = result.annuities[0]
+    resultMessage = <p>The present value of an annuity of {amount} per payment for {duration} payments, assuming {rates * 100}% interest, is {result.value}.</p>
   }
   return (
     <Fragment>
