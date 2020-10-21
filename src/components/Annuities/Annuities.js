@@ -7,6 +7,9 @@ import { pv } from '../../api/annuities'
 
 const Annuities = () => {
   const [amount, setAmount] = useState()
+  const [calcDate, setCalcDate] = useState()
+  const [start, setStart] = useState()
+  const [end, setEnd] = useState()
   const [duration, setDuration] = useState()
   const [rateType, setRateType] = useState()
   const [rate, setRate] = useState()
@@ -17,6 +20,15 @@ const Annuities = () => {
     switch (event.target.name) {
       case "amount":
         setAmount(Number(event.target.value))
+        break
+      case "calcDate":
+        setCalcDate(event.target.value)
+        break
+      case "start":
+        setStart(event.target.value)
+        break
+      case "end":
+        setEnd(event.target.value)
         break
       case "duration":
         setDuration(Number(event.target.value))
@@ -121,12 +133,30 @@ const Annuities = () => {
             onChange={handleChange}
           />
         </Form.Group>
-        <Form.Group controlId="duration">
-          <Form.Label>Number of Payments</Form.Label>
+        <Form.Group controlId="calcDate">
+          <Form.Label>Calculation Date</Form.Label>
           <Form.Control 
             required
-            type="number"
-            name="duration"
+            type="date"
+            name="calcDate"
+            onChange={handleChange}
+          />
+        </Form.Group>
+        <Form.Group controlId="start">
+          <Form.Label>Annuity Start Date</Form.Label>
+          <Form.Control 
+            required
+            type="date"
+            name="start"
+            onChange={handleChange}
+          />
+        </Form.Group>
+        <Form.Group controlId="end">
+          <Form.Label>Annuity End Date</Form.Label>
+          <Form.Control 
+            required
+            type="date"
+            name="end"
             onChange={handleChange}
           />
         </Form.Group>
